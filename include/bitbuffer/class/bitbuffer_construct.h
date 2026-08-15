@@ -25,6 +25,8 @@ bitbuffer::bitbuffer(const bitbuffer& buffer) {
 }
 
 bitbuffer::bitbuffer(const std::string& string) {
+	data = new uint8_t[string.size()];
+
 	for (char C : string) {
 		uint8_t byte = static_cast<uint8_t>(C);
 		write_uint8(byte);
