@@ -48,6 +48,8 @@ public:
 	char16_t read_char16();
 	char32_t read_char32();
 
+	std::string read_string(size_t size);
+
 
 	/**** writing ****/
 
@@ -71,6 +73,8 @@ public:
 	#endif
 	void write_char16(char16_t character);
 	void write_char32(char32_t character);
+
+	void write_string(const std::string& string, size_t size);
 
 	/* string */
 	std::string to_string();
