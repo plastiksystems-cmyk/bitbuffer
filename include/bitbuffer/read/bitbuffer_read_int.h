@@ -5,31 +5,19 @@
 namespace bitbuffer {
 
 int8_t bitbuffer::read_int8() {
-    int8_t number = data[cursor];
-    advance_cursor();
-
-    return number;
+    return static_cast<int8_t>(read_uint8());
 }
 
 int16_t bitbuffer::read_int16() {
-    int8_t high = read_int8();
-    int8_t low = read_int8();
-
-    return (static_cast<int16_t>(high) << 8) | low;
+    return static_cast<int16_t>(read_uint16());
 }
 
 int32_t bitbuffer::read_int32() {
-    int16_t high = read_int16();
-    int16_t low = read_int16();
-
-    return (static_cast<int32_t>(high) << 16) | low;
+    return static_cast<int32_t>(read_uint32());
 }
 
 int64_t bitbuffer::read_int64() {
-    int32_t high = read_int32();
-    int32_t low = read_int32();
-
-    return (static_cast<int64_t>(high) << 32) | low;
+    return static_cast<int64_t>(read_uint64());
 }
 
 }

@@ -5,6 +5,9 @@
 #include <stdexcept>
 #include <cstdlib>
 
+/* Current C++ standard, change if you want to use C++11-C++17 */
+#define BITBUFFER_CXX_STANDARD 20
+
 namespace bitbuffer {
 
 class bitbuffer {
@@ -23,7 +26,7 @@ public:
 	void move_cursor(size_t position);
 	size_t get_cursor() const;
 
-	/* reading */
+	/**** reading ****/
 	uint8_t read_uint8();
 	uint16_t read_uint16();
 	uint32_t read_uint32();
@@ -39,7 +42,15 @@ public:
 
 	bool read_bool();
 
-	/* writing */
+	#if BITBUFFER_CXX_STANDARD >= 20
+		char8_t read_char8();
+	#endif
+	char16_t read_char16();
+	char32_t read_char32();
+
+
+	/**** writing ****/
+
 	void write_uint8(uint8_t number);
 	void write_uint16(uint16_t number);
 	void write_uint32(uint32_t number);
@@ -54,6 +65,12 @@ public:
 	void write_double(double number);
 
 	void write_bool(bool boolean);
+
+	#if BITBUFFER_CXX_STANDARD >= 20
+		void write_char8(char8_t character);
+	#endif
+	void write_char16(char16_t character);
+	void write_char32(char32_t character);
 
 	/* string */
 	std::string to_string();
