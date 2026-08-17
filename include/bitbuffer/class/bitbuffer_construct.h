@@ -33,4 +33,10 @@ bitbuffer::bitbuffer(const std::string& string) {
 	}
 }
 
+bitbuffer::~bitbuffer() {
+	if (data != nullptr) {
+		delete[] data;
+	}
+}
+
 }

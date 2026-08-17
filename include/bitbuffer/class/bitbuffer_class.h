@@ -22,6 +22,7 @@ public:
 	bitbuffer(size_t size);
 	bitbuffer(const bitbuffer& buffer);
 	bitbuffer(const std::string& string);
+	~bitbuffer();
 
 	void move_cursor(size_t position);
 	size_t get_cursor() const;
